@@ -3,13 +3,19 @@ import './App.css';
 import Jumbotron from './components/jumbotronHomePage';
 
 class App extends Component {
+
+  state = {
+      isLoggedIn: false
+  }
+
   render() {
     return (
       <div className="App bg">
-        <Jumbotron />
+        <Jumbotron isLoggedIn={this.state.isLoggedIn}/>
       </div>
     );
   }
 }
+
 
 export default App;

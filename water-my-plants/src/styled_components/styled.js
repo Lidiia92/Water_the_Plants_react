@@ -9,3 +9,30 @@ export const WrapperCentered = styled.div`
     -moz-box-shadow: -4px 21px 90px -25px rgba(0,0,0,0.72);
     box-shadow: -4px 21px 90px -25px rgba(0,0,0,0.72);
 `;
+
+export const FlexNav = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+`;
+
+export const BrandWrapper = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 300px;
+`;
+
+export const Brand = styled.a`
+    font-size: 1.6rem;
+    color: #94c9ab;
+    font-weight: 500;
+`;
+
+export const Tab = styled.a`
+    font-size: 1rem;
+    font-weight: 700;
+    color: #909183;
+    text-transform: uppercase;
+`;

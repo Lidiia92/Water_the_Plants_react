@@ -50,4 +50,10 @@ table {
 /* Style for body background */
 body, html {
   height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
