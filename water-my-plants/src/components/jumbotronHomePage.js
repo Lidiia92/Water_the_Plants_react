@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {WrapperCentered, Img, JumbotronContent, TextContent, MainHeading, MainParagraph, DesignImages} from '../styled_components/styled.js';
+import {WrapperCentered, Img, JumbotronContent, TextContent, MainHeading, MainParagraph, DesignImages, DesignHeading} from '../styled_components/styled.js';
 import NavigationMenu from './NavBar';
+import Collapsible from 'react-collapsible';
+import '../App.css';
 
 class Jumbotron extends Component {
 
@@ -18,9 +20,12 @@ class Jumbotron extends Component {
                     <MainHeading>Take Care of Your Plants</MainHeading>
                     <MainParagraph>Florem ipsum st john’s wort jersey lily canterbury bells sneezeweed love-in-a-mist. Crocus sword lily blue throatwort transvaal daisy arum.</MainParagraph>
                     <DesignImages>
-                        <h3>Design Images:</h3>
-                        <a href="http://www.freepik.com">Designed by brgfx / Freepik</a>
-                        <a href="http://www.freepik.com">Designed by macrovector / Freepik</a>
+                        <Collapsible trigger="Design Images:">
+                        <div>
+                            <a href="http://www.freepik.com">Designed by brgfx / Freepik</a> <br />
+                            <a href="http://www.freepik.com">Designed by macrovector / Freepik</a>
+                        </div>
+                        </Collapsible>
                     </DesignImages>
                 </TextContent>
                 <div>

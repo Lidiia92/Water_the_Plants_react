@@ -8292,6 +8292,11 @@ react-bootstrap@^0.32.4:
     uncontrollable "^5.0.0"
     warning "^3.0.0"
 
+react-collapsible@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-collapsible/-/react-collapsible-2.5.0.tgz#7950ec4038c0b11f92f470ce17f596144044e42f"
+  integrity sha512-6O9lGdQq/YJsWbEEf+geoTzv/vWFKUNrCHOUyrzIWV8eEgFT8xP3EB64/Xj232hEavDOb7SEKhcjeMUNAQFUvg==
+
 react-dev-utils@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-7.0.1.tgz#c53e759a22668ee2c0d146c24ce4bdec2b41e3c8"

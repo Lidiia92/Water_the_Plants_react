@@ -17,3 +17,29 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* Changing styles of collapsible content */
+
+.Collapsible__trigger {
+  font-size: 2rem;
+  color: #94c9ab;
+  font-weight: 500;
+  margin-bottom: 15px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.is-open {
+  font-size: 2rem;
+  color: #94c9ab;
+  font-weight: 500;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.Collapsible__contentInner a {
+  color: #d29596;
+  margin-bottom: 8px;
+  font-size: 1.7rem;
+  display: inline-block;
+}

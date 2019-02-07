@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Collapsible from 'react-collapsible';
 
 export const WrapperCentered = styled.div`
     background: rgba(255, 255, 255, 1);
@@ -76,19 +77,8 @@ export const DesignImages = styled.div`
     flex-direction: column;
     text-align: left;
     margin-left: 28px;
+    `;
 
-    h3{
-        font-size: 2rem;
-        color: #94c9ab;
-        font-weight: 500;
-        margin-bottom: 15px;
-    }
 
-    a {
-        color: #d29596;
-        margin-bottom: 8px;
-    }
-
-`;
 
 
