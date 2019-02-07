@@ -1,5 +1,5 @@
 import React from "react";
-import {FlexNav, BrandWrapper, Brand, Tab} from '../styled_components/styled.js';
+import {FlexNav, BrandWrapper, Brand, Tab, LogInBTn} from '../styled_components/styled.js';
 
 
 
@@ -23,8 +23,8 @@ const NavigationBar = props => {
                     <Tab href="#" onClick={() => displayPlants(props)}>My Plants</Tab>
                 </BrandWrapper>
                 <div>
-                    <a href="#">Log In</a>
-                    <a href="#">Log In</a>
+                    <LogInBTn href="#">Log In</LogInBTn>
+                    <LogInBTn href="#">Sign Up</LogInBTn>
                 </div>
             </FlexNav>
     );

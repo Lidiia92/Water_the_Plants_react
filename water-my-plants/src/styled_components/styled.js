@@ -79,6 +79,16 @@ export const DesignImages = styled.div`
     margin-left: 28px;
     `;
 
-
+export const LogInBTn = styled.a`
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #909183;
+    display: inline-block;
+    text-transform: uppercase;
+    border: 2px solid #909183;
+    border-radius: 25px;
+    margin-right: 28px;
+    padding: 10px 25px;
+`;
 
 
