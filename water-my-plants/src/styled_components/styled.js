@@ -25,14 +25,70 @@ export const BrandWrapper = styled.div`
 `;
 
 export const Brand = styled.a`
-    font-size: 1.6rem;
+    font-size: 2.3rem;
     color: #94c9ab;
     font-weight: 500;
 `;
 
 export const Tab = styled.a`
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #909183;
     text-transform: uppercase;
 `;
+
+export const Img = styled.img`
+    width: 500px;
+    height: auto;
+`;
+
+export const JumbotronContent = styled.div`
+    margin-top: 90px;
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+
+`;
+
+export const TextContent = styled.div`
+    margin-top: 90px;
+    width: 45%;
+
+`;
+
+export const MainHeading = styled.h2`
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: #393a34;
+`;
+
+export const MainParagraph = styled.p`
+    font-size: 2rem;
+    color: #393a34;
+`;
+
+export const DesignImages = styled.div`
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 28px;
+
+    h3{
+        font-size: 2rem;
+        color: #94c9ab;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    a {
+        color: #d29596;
+        margin-bottom: 8px;
+    }
+
+`;
+
+
