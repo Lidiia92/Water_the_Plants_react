@@ -7,20 +7,28 @@ import {FlexNav, BrandWrapper, Brand, Tab, LogInBTn} from '../styled_components/
 
 const NavigationBar = props => {
 
-    function displayPlants(props) {
+    function displayPlants(e, props) {
         const isLoggedIn = props.isLoggedIn;
         if (isLoggedIn) {
-          return props.visitPage();
+          return props.visitPage;
         }
-        return props.notify();
-      }
+        return (e.preventDefault(), props.notify());
+    }
+    
+    function link(){
+        const isLoggedIn = props.isLoggedIn;
+        if (isLoggedIn) {
+            return "/myplants";
+          }
+          return "/";
+    }
 
 
     return (
             <FlexNav>
                 <BrandWrapper>
-                    <Brand href="#">Planter</Brand>
-                    <Tab href="#" onClick={() => displayPlants(props)}>My Plants</Tab>
+                    <Brand href="/">Planter</Brand>
+                    <Tab href={link()} onClick={(e) => displayPlants(e, props)}>My Plants</Tab>
                 </BrandWrapper>
                 <div>
                     <LogInBTn href="#">Log In</LogInBTn>

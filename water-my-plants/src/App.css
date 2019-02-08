@@ -43,3 +43,29 @@
   font-size: 1.7rem;
   display: inline-block;
 }
+
+
+/*Changing styles of form */
+.ui.form .field>label {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #d29596;
+  font-weight: 400;
+}
+
+.ui.form .field>input {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.ui .button {
+  background: none;
+  border: 2px solid #d29596;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+
+}
+
+.ui .button:hover {
+  background: none;
+}

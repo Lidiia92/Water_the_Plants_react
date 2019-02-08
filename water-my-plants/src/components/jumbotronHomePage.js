@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {WrapperCentered, Img, JumbotronContent, TextContent, MainHeading, MainParagraph, DesignImages, DesignHeading} from '../styled_components/styled.js';
+import {WrapperCentered, Img, JumbotronContent, TextContent, MainHeading, MainParagraph, DesignImages} from '../styled_components/styled.js';
 import NavigationMenu from './NavBar';
 import Collapsible from 'react-collapsible';
 import '../App.css';

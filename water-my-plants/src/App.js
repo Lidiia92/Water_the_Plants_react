@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Jumbotron from './components/jumbotronHomePage';
+import Register from './components/Register.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
 
@@ -13,8 +15,8 @@ class App extends Component {
     }
   }
 
-  notify = () => {
-    
+  notify = (e) => {
+
     console.log('test');
     toast.info("Please Log In to See Your Plants!", {
       position: toast.POSITION.TOP_CENTER
@@ -28,9 +30,22 @@ class App extends Component {
 
   render() {
     return (
-        <div className="App bg">
-            <Jumbotron isLoggedIn={this.state.isLoggedIn} notify={this.notify} visitPage={this.visitPage}/>
-            <ToastContainer />
+        <div>
+          <div className="App bg">
+
+              <Route path="/" exact render={props => <Jumbotron 
+                  isLoggedIn={this.state.isLoggedIn} 
+                  notify={this.notify} 
+                  visitPage={this.visitPage}/>} />
+              
+              <Route 
+                  path="/register" 
+                  render={props => <Register isLoggedIn={this.state.isLoggedIn} notify={this.notify} visitPage={this.visitPage}/>} />} /> 
+
+
+          
+              <ToastContainer />
+          </div>
         </div>
     );
   }

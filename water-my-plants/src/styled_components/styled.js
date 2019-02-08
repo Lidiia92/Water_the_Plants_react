@@ -91,4 +91,15 @@ export const LogInBTn = styled.a`
     padding: 10px 25px;
 `;
 
+export const FormWrapper = styled.div`
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 10px;
+`;
+
+export const Icon = styled.img`
+    width: 150px;
+    height: auto;
+`;
 
