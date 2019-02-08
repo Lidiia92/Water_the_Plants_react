@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
-import {WrapperCentered, FormWrapper, Icon} from '../styled_components/styled.js';
+import {WrapperCentered, FormWrapper, Icon, License} from '../styled_components/styled.js';
 import '../App.css';
 
 /* Component */
@@ -76,7 +76,7 @@ class Register extends Component {
                     <button class="ui button" type="submit">Submit</button>
                     </form>
                 </FormWrapper>
-                <a href="https://www.freepik.com/free-photos-vectors/flowers">Flowers vector created by macrovector - www.freepik.com</a>
+                <License href="https://www.freepik.com/free-photos-vectors/flowers">© Flowers vector created by macrovector - www.freepik.com</License>
             </WrapperCentered>
         );
     }

@@ -103,3 +103,12 @@ export const Icon = styled.img`
     height: auto;
 `;
 
+export const License = styled.a`
+    display: inline-block;
+    width: 70%;
+    margin-top: 25px;
+    font-size: 1.5rem;
+    text-align: left;
+    color: #94c9ab;
+`;
+
