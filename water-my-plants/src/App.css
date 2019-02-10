@@ -69,3 +69,41 @@
 .ui .button:hover {
   background: none;
 }
+
+
+/*Changing styles of search bar*/
+.centered-width {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-content: baseline;
+}
+
+.centered {
+  margin-top: 20px !important;
+  width: 80%;
+}
+
+/*Changing styles of button */
+.addplant {
+  height: 40px;
+  padding: 0;
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #94c9ab;
+  border: none;
+  color: #fff;
+  font-size:  1.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  display: inline-block;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.addplant:hover{
+  background: #76a088;
+}

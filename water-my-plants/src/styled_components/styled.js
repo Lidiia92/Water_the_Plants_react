@@ -145,3 +145,12 @@ export const License2 = styled.a`
     }
 `;
 
+export const PlantsWrapper = styled.div`
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+`;
+

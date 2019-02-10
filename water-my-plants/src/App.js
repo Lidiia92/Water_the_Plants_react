@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Jumbotron from './components/jumbotronHomePage';
 import Register from './components/Register.js';
+import PlantList from './components/PlantsList.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route } from 'react-router-dom';
@@ -55,13 +56,12 @@ class App extends Component {
                   render={props => <Register {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />} /> 
 
 
-          
+              <Route 
+                  path="/myplants" 
+                  render={props => <PlantList {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />       
               <ToastContainer />
           </div>
 
-          <Route 
-                  path="/myplants" 
-                  render={props => <div >Plants Route</div>} />} />       
         </div>
     );
   }
