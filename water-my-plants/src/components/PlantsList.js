@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
-import {WrapperCentered, PlantsWrapper} from '../styled_components/styled.js';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import {WrapperCentered, PlantsHeading, PlantsQuontity} from '../styled_components/styled.js';
+import { Button, Card, Image } from 'semantic-ui-react'
 import '../App.css';
 
 /* Component */
@@ -20,14 +20,16 @@ class PlantList extends Component {
    
 
     componentDidMount(){
-        //this.getData();
+        this.getData();
+        
     }
   
     async getData() {
       try {
         const token = localStorage.getItem('jwtToken');
+        const userId = localStorage.getItem('newUserId');
 
-        const endpoint = 'http://localhost:3300/api/jokes';
+        const endpoint = `https://wmp2-back-end.herokuapp.com/api/users/${userId}/plants`;
   
         const options = {
           headers: {
@@ -38,7 +40,7 @@ class PlantList extends Component {
         const { data } = await res;
         console.log(res.data);
         this.setState({
-          jokes: res.data
+            plants: res.data.plants
         })
         console.log('State', this.state);
       }
@@ -59,7 +61,9 @@ class PlantList extends Component {
         this.props.history.push("/myplants");
     }
 
+
     render(){
+        const plantsq = this.state.plants.length;
         return (
             <WrapperCentered>
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
@@ -72,10 +76,10 @@ class PlantList extends Component {
                         </div>
                     </div>
                 </div>
-                <PlantsWrapper>
+                <PlantsHeading>
+                    <PlantsQuontity>All Plants: <span>{plantsq}</span></PlantsQuontity>
+                </PlantsHeading>
 
-
-                </PlantsWrapper>
             </WrapperCentered>
         );
     }

@@ -145,12 +145,23 @@ export const License2 = styled.a`
     }
 `;
 
-export const PlantsWrapper = styled.div`
+export const PlantsHeading = styled.div`
     margin-top: 10px;
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    width: 90%;
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
+`;
+
+export const PlantsQuontity = styled.p`
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #587866;
+
+    span {
+        color: #94c9ab;
+    }
 `;
 
