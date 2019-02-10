@@ -15,6 +15,15 @@ class App extends Component {
     }
   }
 
+  componentDidMount(){
+    const token = localStorage.getItem('jwtToken');
+    if(token){
+      this.setState({
+        isLoggedIn: true
+      })
+    }
+  }
+
   notify = (e) => {
 
     console.log('test');
@@ -24,9 +33,12 @@ class App extends Component {
 
   }
 
-  visitPage = () => {
-    window.location='http://localhost:3000/myplants';
+  loggedIn = (value) => {
+    this.setState({
+      isLoggedIn: value
+    })
   }
+
 
   render() {
     return (
@@ -40,12 +52,16 @@ class App extends Component {
               
               <Route 
                   path="/register" 
-                  render={props => <Register isLoggedIn={this.state.isLoggedIn} notify={this.notify} visitPage={this.visitPage}/>} />} /> 
+                  render={props => <Register {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />} /> 
 
 
           
               <ToastContainer />
           </div>
+
+          <Route 
+                  path="/myplants" 
+                  render={props => <div >Plants Route</div>} />} />       
         </div>
     );
   }

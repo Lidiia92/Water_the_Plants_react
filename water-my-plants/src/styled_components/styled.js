@@ -29,6 +29,10 @@ export const Brand = styled.a`
     font-size: 2.3rem;
     color: #94c9ab;
     font-weight: 500;
+
+    :hover{
+        color: #76a088;
+    }
 `;
 
 export const Tab = styled.a`
@@ -36,6 +40,10 @@ export const Tab = styled.a`
     font-weight: 700;
     color: #909183;
     text-transform: uppercase;
+
+    :hover{
+        color: #737468;
+    }
 `;
 
 export const Img = styled.img`
@@ -89,6 +97,10 @@ export const LogInBTn = styled.a`
     border-radius: 25px;
     margin-right: 28px;
     padding: 10px 25px;
+
+    :hover{
+        color: #737468;
+    }
 `;
 
 export const FormWrapper = styled.div`
@@ -110,5 +122,26 @@ export const License = styled.a`
     font-size: 1.5rem;
     text-align: left;
     color: #94c9ab;
+
+    :hover{
+        color: #76a088;
+    }
+`;
+
+export const License2Wrapper = styled.div`
+   margin-top: 29px;
+`;
+
+export const License2 = styled.a`
+    display: inline-block;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 1.5rem;
+    text-align: left;
+    color: #94c9ab;
+
+    :hover{
+        color: #76a088;
+    }
 `;
 

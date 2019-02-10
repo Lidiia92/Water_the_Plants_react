@@ -8,24 +8,31 @@ import '../App.css';
 
 class Register extends Component {
 
-    state = {
-        username: '',
-        password: '', 
-        email: '',
-        phone: ''
-    }
+    constructor(props) {
+        super(props);
+        this.state = { 
+            username: '',
+            password: '', 
+            email: '',
+            phone: '',
+
+        }
+      }
+   
 
     handleSubmit = async (event) => {
         event.preventDefault();
         try {
             const endpoint = 'https://wmp2-back-end.herokuapp.com/api/register';
             const res = await axios.post(endpoint, this.state);
+            console.log('test');
             const { data } = await res;
             console.log('test', data);
             localStorage.setItem('jwtToken', res.data.token);
             localStorage.setItem('newUserId', res.data.newUser);
+            this.props.loggedIn(true);
             this.clearState();
-            this.props.visitpage();
+            this.visitpage();
         }
         catch(err){
             console.log('ERROR', err);
@@ -43,10 +50,15 @@ class Register extends Component {
     clearState = () => {
         this.setState({
             username: '',
-            password: '',
+            password: '', 
+            email: '',
+            phone: ''
         })
     }
 
+    visitpage() {
+        this.props.history.push("/myplants");
+    }
 
     render(){
         return (
@@ -56,24 +68,44 @@ class Register extends Component {
                 <Icon src={require('../images/Capture01.PNG')} />
                 </div>
                 <FormWrapper>
-                    <form class="ui form">
-                    <div class="field">
+                    <form className="ui form" onSubmit={this.handleSubmit}>
+                    <div className="field">
                         <label>Username</label>
-                        <input type="text" name="first-name" placeholder="Username" required/>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            value={this.state.username} 
+                            onChange={this.handleChange}
+                            placeholder="Username" required/>
                     </div>
-                    <div class="field">
+                    <div className="field">
                         <label>Password</label>
-                        <input type="password" name="last-name" placeholder="Password" required/>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            value={this.state.password} 
+                            onChange={this.handleChange}
+                            placeholder="Password" required/>
                     </div>
-                    <div class="field">
+                    <div className="field">
                         <label>Email</label>
-                        <input type="email" name="last-name" placeholder="Email" required/>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            value={this.state.email} 
+                            onChange={this.handleChange}
+                            placeholder="Email" required/>
                     </div>
-                    <div class="field">
+                    <div className="field">
                         <label>Phone</label>
-                        <input type="tel" name="last-name" placeholder="Phone" required/>
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            value={this.state.phone} 
+                            onChange={this.handleChange}
+                            placeholder="Phone" required/>
                     </div>
-                    <button class="ui button" type="submit">Submit</button>
+                    <button className="ui button" type="submit">Submit</button>
                     </form>
                 </FormWrapper>
                 <License href="https://www.freepik.com/free-photos-vectors/flowers">© Flowers vector created by macrovector - www.freepik.com</License>

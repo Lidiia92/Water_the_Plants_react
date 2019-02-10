@@ -32,7 +32,7 @@ const NavigationBar = props => {
                 </BrandWrapper>
                 <div>
                     <LogInBTn href="#">Log In</LogInBTn>
-                    <LogInBTn href="#">Sign Up</LogInBTn>
+                    <LogInBTn href="/register">Sign Up</LogInBTn>
                 </div>
             </FlexNav>
     );
