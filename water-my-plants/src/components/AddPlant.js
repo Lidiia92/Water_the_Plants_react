@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
-import {WrapperCentered, FormWrapper, Icon, License} from '../styled_components/styled.js';
+import {WrapperCentered, FormWrapper} from '../styled_components/styled.js';
 import '../App.css';
 
 /* Component */
 
-class Register extends Component {
+class AddPlantForm extends Component {
 
     constructor(props) {
         super(props);
@@ -64,54 +64,53 @@ class Register extends Component {
         return (
             <WrapperCentered>
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
-                <div>
-                <Icon src={require('../images/Capture01.PNG')} />
-                </div>
                 <FormWrapper>
                     <form className="ui form" onSubmit={this.handleSubmit}>
-                    <div className="field">
-                        <label>Username *</label>
+                    <div className="field mg-top">
+                        <label>Name *</label>
                         <input 
                             type="text" 
-                            name="username" 
-                            value={this.state.username} 
+                            name="name" 
+                            value={this.state.name} 
                             onChange={this.handleChange}
-                            placeholder="Username" required/>
+                            placeholder="Name" required/>
                     </div>
                     <div className="field">
-                        <label>Password *</label>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            value={this.state.password} 
+                        <label>Description *</label>
+                        <textarea
+                            rows="3" 
+                            name="description" 
+                            value={this.state.description} 
                             onChange={this.handleChange}
-                            placeholder="Password" required/>
+                            placeholder="Tell us something about your plant..." required>
+                        </textarea>
+
                     </div>
                     <div className="field">
-                        <label>Email *</label>
+                        <label>Characteristic</label>
                         <input 
-                            type="email" 
-                            name="email" 
-                            value={this.state.email} 
+                            type="text" 
+                            name="characteristic" 
+                            value={this.state.characteristic} 
                             onChange={this.handleChange}
-                            placeholder="Email" required/>
+                            placeholder="Characteristic" />
                     </div>
                     <div className="field">
-                        <label>Phone</label>
+                        <label>When did you last water your plant?</label>
                         <input 
-                            type="tel" 
-                            name="phone" 
-                            value={this.state.phone} 
+                            type="date" 
+                            name="lastWater" 
+                            value={this.state.lastWater} 
                             onChange={this.handleChange}
-                            placeholder="Phone" />
+                            placeholder="Last Watered" />
                     </div>
                     <button className="ui button" type="submit">Submit</button>
                     </form>
                 </FormWrapper>
-                <License href="https://www.freepik.com/free-photos-vectors/flowers">© Flowers vector created by macrovector - www.freepik.com</License>
+              
             </WrapperCentered>
         );
     }
   };
   
-  export default Register;
+  export default AddPlantForm;

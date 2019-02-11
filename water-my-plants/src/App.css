@@ -53,7 +53,16 @@
   font-weight: 400;
 }
 
+.ui.form .field.mg-top{
+  margin-top: 40px;
+}
+
 .ui.form .field>input {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.ui.form .field>textarea {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }

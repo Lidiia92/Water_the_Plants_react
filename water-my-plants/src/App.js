@@ -3,6 +3,7 @@ import './App.css';
 import Jumbotron from './components/jumbotronHomePage';
 import Register from './components/Register.js';
 import PlantList from './components/PlantsList.js';
+import AddPlantForm from './components/AddPlant.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route } from 'react-router-dom';
@@ -59,6 +60,11 @@ class App extends Component {
               <Route 
                   path="/myplants" 
                   render={props => <PlantList {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />       
+              <ToastContainer />
+
+              <Route 
+                  path="/addplant" 
+                  render={props => <AddPlantForm {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />       
               <ToastContainer />
           </div>
 
