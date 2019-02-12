@@ -1,9 +1,19 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
-import {WrapperCentered, PlantsHeading, PlantsQuontity} from '../styled_components/styled.js';
+import PlantsListView from './PlantListView.js';
+import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv} from '../styled_components/styled.js';
 import { Button, Card, Image } from 'semantic-ui-react'
 import '../App.css';
+import ReactAnimatedWeather from 'react-animated-weather';
+
+const defaults = {
+  icon: 'CLEAR_DAY',
+  color: 'goldenrod',
+  size: 64,
+  animate: true
+};
+
 
 /* Component */
 
@@ -13,7 +23,8 @@ class PlantList extends Component {
         super(props);
         this.state = { 
             plants: [],
-            searchPlant: ''
+            searchPlant: '',
+            watering: false
 
         }
       }
@@ -65,7 +76,17 @@ class PlantList extends Component {
     render(){
         const plantsq = this.state.plants.length;
         return (
+           
             <WrapperCentered>
+               {this.state.watering &&
+                <ReactAnimatedWeather
+                    icon={defaults.icon}
+                    color={defaults.color}
+                    size={defaults.size}
+                    animate={defaults.animate}
+                />
+               }
+
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
                 <div className="ui form">
                     
@@ -79,8 +100,12 @@ class PlantList extends Component {
                 <PlantsHeading>
                     <PlantsQuontity>All Plants: <span>{plantsq}</span></PlantsQuontity>
                 </PlantsHeading>
+                <PlantListViewDiv>
+                    {this.state.plants.map(plant => <PlantsListView name={plant.name} img_url={plant.img_url} description={plant.description}/>)}
+                </PlantListViewDiv>
 
             </WrapperCentered>
+         
         );
     }
   };

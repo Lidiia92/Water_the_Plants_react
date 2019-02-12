@@ -165,3 +165,46 @@ export const PlantsQuontity = styled.p`
     }
 `;
 
+export const PlantListViewWrapper = styled.div`
+   display: flex;
+   margin-left: auto;
+   margin-right: auto;
+   width: 60%;
+   margin-top: 15px;
+   border-bottom: 1.3px solid #94c9ab;
+   padding-bottom: 5px;
+`;
+
+export const PlantListViewImg = styled.img`
+   width: 150px;
+   height: auto;
+   border-radius: 50%;
+   
+`;
+
+export const PlantListViewText = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   margin-left: 15px;
+
+   h3 {
+       color:  #94c9ab;
+       font-size: 1.7rem;
+
+   }
+
+   p {
+        color:  #909183;
+        margin-top: 8px;
+        font-size: 1.5rem;
+   }
+`;
+
+export const PlantListViewDiv = styled.div`
+   overflow: auto;
+   height: 400px;
+
+`;
+
