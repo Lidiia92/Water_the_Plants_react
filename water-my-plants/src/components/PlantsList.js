@@ -70,7 +70,7 @@ class PlantList extends Component {
                 <div className="ui form">
                     
                     <div className="fields centered-width">
-                        <button className="left floated addplant">Add Plant</button>
+                        <a href="/addplant" className="left floated addplant">Add Plant</a>
                         <div className="eight wide field centered">
                             <input type="text" placeholder="Start typing plant's name" />
                         </div>

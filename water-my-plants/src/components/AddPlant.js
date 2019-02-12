@@ -11,10 +11,12 @@ class AddPlantForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            username: '',
-            password: '', 
-            email: '',
-            phone: '',
+            name: '',
+            characteristic: '',
+            description: '',
+            lastWater: '',
+            nextWater: '',
+            img_url: ''
 
         }
       }
@@ -23,14 +25,20 @@ class AddPlantForm extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const endpoint = 'https://wmp2-back-end.herokuapp.com/api/register';
-            const res = await axios.post(endpoint, this.state);
+            const token = localStorage.getItem('jwtToken');
+            const userId = localStorage.getItem('newUserId');
+            const endpoint = `https://wmp2-back-end.herokuapp.com/api/users/${userId}/plants`;
+
+            const options = {
+                headers: {
+                  Authorization: token
+                }
+              }
+            const res = await axios.post(endpoint, this.state, options);
             console.log('test');
             const { data } = await res;
             console.log('test', data);
-            localStorage.setItem('jwtToken', res.data.token);
-            localStorage.setItem('newUserId', res.data.newUser);
-            this.props.loggedIn(true);
+
             this.clearState();
             this.visitpage();
         }
@@ -49,10 +57,12 @@ class AddPlantForm extends Component {
 
     clearState = () => {
         this.setState({
-            username: '',
-            password: '', 
-            email: '',
-            phone: ''
+            name: '',
+            characteristic: '',
+            description: '',
+            lastWater: '',
+            nextWater: '',
+            img_url: ''
         })
     }
 
@@ -103,6 +113,26 @@ class AddPlantForm extends Component {
                             value={this.state.lastWater} 
                             onChange={this.handleChange}
                             placeholder="Last Watered" />
+                    </div>
+
+                    <div className="field">
+                        <label>Next date to water your plant</label>
+                        <input 
+                            type="date" 
+                            name="nextWater" 
+                            value={this.state.nextWater} 
+                            onChange={this.handleChange}
+                            placeholder="Next Water" />
+                    </div>
+
+                    <div className="field">
+                        <label>Image URL of your plant</label>
+                        <input 
+                            type="text" 
+                            name="img_url" 
+                            value={this.state.img_url} 
+                            onChange={this.handleChange}
+                            placeholder="Image URL of your plant" />
                     </div>
                     <button className="ui button" type="submit">Submit</button>
                     </form>
