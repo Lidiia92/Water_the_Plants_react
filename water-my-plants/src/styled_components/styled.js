@@ -152,6 +152,7 @@ export const PlantsHeading = styled.div`
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
 `;
 
 export const PlantsQuontity = styled.p`
@@ -205,6 +206,35 @@ export const PlantListViewText = styled.div`
 export const PlantListViewDiv = styled.div`
    overflow: auto;
    height: 400px;
+
+`;
+
+
+export const WaterThePlant = styled.button`
+  height: 40px;
+  padding: 0;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #94c9ab;
+  border: none;
+  color: #fff;
+  font-size:  1.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-top: 6px;
+  padding-bottom: 2px;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background: #76a088;
+    color: #fff;
+  }
+`;
+
+export const WateringWrapper = styled.div`
+   margin-top: 40px;
 
 `;
 

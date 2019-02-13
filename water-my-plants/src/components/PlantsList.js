@@ -2,15 +2,15 @@ import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
 import PlantsListView from './PlantListView.js';
-import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv} from '../styled_components/styled.js';
+import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv, WaterThePlant, WateringWrapper} from '../styled_components/styled.js';
 import { Button, Card, Image } from 'semantic-ui-react'
 import '../App.css';
 import ReactAnimatedWeather from 'react-animated-weather';
 
 const defaults = {
-  icon: 'CLEAR_DAY',
-  color: 'goldenrod',
-  size: 64,
+  icon: 'RAIN',
+  color: '#d4f1f9',
+  size: 300,
   animate: true
 };
 
@@ -23,9 +23,7 @@ class PlantList extends Component {
         super(props);
         this.state = { 
             plants: [],
-            searchPlant: '',
             watering: false
-
         }
       }
    
@@ -72,21 +70,27 @@ class PlantList extends Component {
         this.props.history.push("/myplants");
     }
 
+    waterThePlants = () => {
+        console.log('watering');
+        if(!this.state.watering){
+          this.setState({
+            ...this.state,
+            watering: true
+          });
+        } else if (this.state.watering){
+          this.setState({
+            ...this.state,
+            watering: false
+          });
+        }
+      }
+
 
     render(){
         const plantsq = this.state.plants.length;
         return (
            
             <WrapperCentered>
-               {this.state.watering &&
-                <ReactAnimatedWeather
-                    icon={defaults.icon}
-                    color={defaults.color}
-                    size={defaults.size}
-                    animate={defaults.animate}
-                />
-               }
-
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
                 <div className="ui form">
                     
@@ -100,9 +104,28 @@ class PlantList extends Component {
                 <PlantsHeading>
                     <PlantsQuontity>All Plants: <span>{plantsq}</span></PlantsQuontity>
                 </PlantsHeading>
-                <PlantListViewDiv>
-                    {this.state.plants.map(plant => <PlantsListView name={plant.name} img_url={plant.img_url} description={plant.description}/>)}
-                </PlantListViewDiv>
+
+               {this.state.watering &&
+               <WateringWrapper>
+                   <ReactAnimatedWeather
+                       icon={defaults.icon}
+                       color={defaults.color}
+                       size={defaults.size}
+                       animate={defaults.animate}
+                   />
+                   <br />
+                   <WaterThePlant onClick={() => this.waterThePlants()}>Stop Watering</WaterThePlant>
+               </WateringWrapper>
+               }
+                {!this.state.watering && this.state.plants.length > 0 &&
+                    <div>
+                        <PlantListViewDiv>
+                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description}/>)}
+                        </PlantListViewDiv>
+                        <WaterThePlant onClick={() => this.waterThePlants()}>Water All</WaterThePlant>
+                    </div>
+                }
+
 
             </WrapperCentered>
          

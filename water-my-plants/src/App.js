@@ -13,7 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      isLoggedIn: false
+      isLoggedIn: false,
+      searchPlant: '',
     }
   }
 
@@ -59,7 +60,7 @@ class App extends Component {
 
               <Route 
                   path="/myplants" 
-                  render={props => <PlantList {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />       
+                  render={props => <PlantList {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} watering={this.state.watering} waterThePlants={this.waterThePlants}/>} />       
               <ToastContainer />
 
               <Route 
