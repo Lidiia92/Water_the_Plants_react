@@ -5,6 +5,6 @@ ID = "1971b069-7978-4531-97cf-c2857fe01fc7" # Settings in the [build] context ar
   # This is the directory to change to before starting a build.
   base  = "water-my-plants/" # NOTE: This is where we will look for package.json/.nvmrc/etc, not root.
   # This is the directory that you are publishing from (relative to root of your repo)
-  publish = "water-my-plant/build/"
+  publish = "water-my-plants/build/"
   # This will be your default build command
   command = "yarn build"
