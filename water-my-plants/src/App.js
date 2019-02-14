@@ -55,7 +55,7 @@ class App extends Component {
               
               <Route 
                   path="/register" 
-                  render={props => <Register {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />} /> 
+                  render={props => <Register {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
 
 
               <Route 
