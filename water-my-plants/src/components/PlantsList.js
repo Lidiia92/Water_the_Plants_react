@@ -23,7 +23,8 @@ class PlantList extends Component {
         super(props);
         this.state = { 
             plants: [],
-            watering: false
+            watering: false,
+            needsToWater: false
         }
       }
    
@@ -122,7 +123,10 @@ class PlantList extends Component {
                         <PlantListViewDiv>
                             {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description}/>)}
                         </PlantListViewDiv>
+                        {this.state.needsToWater && 
+
                         <WaterThePlant onClick={() => this.waterThePlants()}>Water All</WaterThePlant>
+                        }
                     </div>
                 }
 
