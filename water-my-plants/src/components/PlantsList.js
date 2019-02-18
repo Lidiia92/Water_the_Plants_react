@@ -26,14 +26,14 @@ class PlantList extends Component {
         this.state = { 
             plants: [],
             watering: false,
-            needsToWater: false,
-            alreadyWatered: false
+            needsToWater: false
         }
       }
    
 
-    componentDidMount(){
+    async componentDidMount(){
         this.getData();
+         
         
     }
   
@@ -52,9 +52,13 @@ class PlantList extends Component {
         const res = await axios.get(endpoint, options);
         const { data } = await res;
         console.log(res.data);
+        const today = await this.getFormattedDate(date);
         this.setState({
-            plants: res.data.plants
-        })
+            ...this.state,
+            plants: res.data.plants,
+        });
+        
+
         this.compareDates(this.state.plants);
         console.log('State', this.state);
       }
@@ -81,14 +85,12 @@ class PlantList extends Component {
           this.setState({
             ...this.state,
             watering: true,
-            alreadyWatered: true,
             needsToWater: false,
           });
         } else if (this.state.watering){
           this.setState({
             ...this.state,
             watering: false,
-            alreadyWatered: true,
             needsToWater: false,
           });
         }
@@ -110,19 +112,38 @@ class PlantList extends Component {
     compareDates = (updatedState) => {
         const today = this.getFormattedDate(date);
         const plantsDates = updatedState.map(plant => plant.nextWater);
+
         plantsDates.forEach(date => {
             if (today === date) {
                 this.setState({
                     ...this.state,
                     needsToWater: true
                 })
+            } 
+        });
+
+        const plantsNeedsToWater = []; 
+        updatedState.forEach(plant => {
+            if(today === plant.nextWater){
+                plant.needsToWater = 1;
+                plantsNeedsToWater.push(plant);
+            } else {
+                plantsNeedsToWater.push(plant);
             }
         });
+        console.log(plantsNeedsToWater, 'plantsneedsto wter');
+        this.setState({
+            ...this.state,
+            plants: plantsNeedsToWater,
+        });
+
+        console.log(updatedState, 'updatedState finalle');
     }
 
 
     render(){
         const plantsq = this.state.plants.length;
+        console.log('The latest state', this.state);
         return (
            
             <WrapperCentered>
@@ -156,7 +177,7 @@ class PlantList extends Component {
                 {!this.state.watering && this.state.plants.length > 0 &&
                     <div>
                         <PlantListViewDiv>
-                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={this.state.needsToWater} alreadyWatered={this.state.alreadyWatered}/>)}
+                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={plant.needsToWater}/>)}
                         </PlantListViewDiv>
                         {this.state.needsToWater && 
 
