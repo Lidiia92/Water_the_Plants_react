@@ -16,6 +16,8 @@ const PlantsListView = props => {
                 <h3>{props.name}</h3>
                 <p>{props.description}</p>
             </PlantListViewText>
+            {props.needsToWater && <p>Water me</p>}
+            {props.alreadyWatered && <p>Update my schedule</p>}
         </PlantListViewWrapper>
     );
   };

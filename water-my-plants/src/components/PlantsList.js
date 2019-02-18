@@ -14,6 +14,8 @@ const defaults = {
   animate: true
 };
 
+const date = new Date();
+
 
 /* Component */
 
@@ -24,7 +26,8 @@ class PlantList extends Component {
         this.state = { 
             plants: [],
             watering: false,
-            needsToWater: false
+            needsToWater: false,
+            alreadyWatered: false
         }
       }
    
@@ -52,6 +55,7 @@ class PlantList extends Component {
         this.setState({
             plants: res.data.plants
         })
+        this.compareDates(this.state.plants);
         console.log('State', this.state);
       }
       catch (err) {
@@ -76,15 +80,45 @@ class PlantList extends Component {
         if(!this.state.watering){
           this.setState({
             ...this.state,
-            watering: true
+            watering: true,
+            alreadyWatered: true,
+            needsToWater: false,
           });
         } else if (this.state.watering){
           this.setState({
             ...this.state,
-            watering: false
+            watering: false,
+            alreadyWatered: true,
+            needsToWater: false,
           });
         }
       }
+
+    getFormattedDate(date) {
+        
+        const year = date.getFullYear();
+        
+        let month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
+      
+        let day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        
+        return year + "-" + month + "-" + day;
+    }
+
+    compareDates = (updatedState) => {
+        const today = this.getFormattedDate(date);
+        const plantsDates = updatedState.map(plant => plant.nextWater);
+        plantsDates.forEach(date => {
+            if (today === date) {
+                this.setState({
+                    ...this.state,
+                    needsToWater: true
+                })
+            }
+        });
+    }
 
 
     render(){
@@ -116,12 +150,13 @@ class PlantList extends Component {
                    />
                    <br />
                    <WaterThePlant onClick={() => this.waterThePlants()}>Stop Watering</WaterThePlant>
+                   <h3>Please update your watering schedule</h3>
                </WateringWrapper>
                }
                 {!this.state.watering && this.state.plants.length > 0 &&
                     <div>
                         <PlantListViewDiv>
-                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description}/>)}
+                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={this.state.needsToWater} alreadyWatered={this.state.alreadyWatered}/>)}
                         </PlantListViewDiv>
                         {this.state.needsToWater && 
 
