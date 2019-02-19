@@ -169,6 +169,7 @@ export const PlantsQuontity = styled.p`
 export const PlantListViewWrapper = styled.div`
    display: flex;
    margin-left: auto;
+   justify-content: space-between;
    margin-right: auto;
    width: 60%;
    margin-top: 15px;
@@ -178,7 +179,7 @@ export const PlantListViewWrapper = styled.div`
 
 export const PlantListViewImg = styled.img`
    width: 150px;
-   height: auto;
+   height: 150px;
    border-radius: 50%;
    
 `;
@@ -238,3 +239,18 @@ export const WateringWrapper = styled.div`
 
 `;
 
+
+export const ImageAndText = styled.div`
+   display: flex;
+
+`;
+
+export const AwsomeWrapper = styled.div`
+   display: flex;
+   align-self: center;
+   height: 100%;
+   margin-right: 28px;
+   color: #d4f1f9;
+   font-size: 5rem;
+
+`;

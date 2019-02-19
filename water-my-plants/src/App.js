@@ -7,6 +7,10 @@ import AddPlantForm from './components/AddPlant.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTint } from '@fortawesome/free-solid-svg-icons';
+ 
+library.add(faTint);
 
 class App extends Component {
 

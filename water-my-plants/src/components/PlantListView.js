@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {PlantListViewWrapper, PlantListViewImg, PlantListViewText} from '../styled_components/styled.js';
+import {PlantListViewWrapper, PlantListViewImg, PlantListViewText, ImageAndText, AwsomeWrapper} from '../styled_components/styled.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../App.css';
 
 
@@ -18,13 +19,14 @@ const PlantsListView = props => {
   
     return (
         <PlantListViewWrapper>
-            <div>
+            <ImageAndText>
                 <PlantListViewImg src={props.img_url}/>
-            </div>
             <PlantListViewText>
                 <h3>{props.name}</h3>
                 <p>{props.description}</p>
             </PlantListViewText>
+            </ImageAndText>
+            {bool && <AwsomeWrapper><FontAwesomeIcon icon="tint" /></AwsomeWrapper>}
            
         </PlantListViewWrapper>
     );
