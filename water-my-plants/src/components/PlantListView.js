@@ -1,21 +1,51 @@
 import React, {Component} from "react";
-import {PlantListViewWrapper, PlantListViewImg, PlantListViewText, ImageAndText, AwsomeWrapper} from '../styled_components/styled.js';
+import {PlantListViewWrapper, PlantListViewImg, PlantListViewText, ImageAndText, AwsomeWrapper, DifferenceWrapper} from '../styled_components/styled.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../App.css';
 
 
+/* Component */
+
 
 const PlantsListView = props => {
 
+    
+    let todaysDate;
+    let plantsNextWater = props.nextWater;
+    let todaysDateArr;
+    let plantsNextWaterArr;
+    let difference;
     let bool;
+    const date = new Date();
 
     if(props.needsToWater === 0) {
         bool = false;
     }else {
         bool = true;
     }
+
+
+    function getFormattedDate(date) {
+            
+        const year = date.getFullYear();
+        
+        let month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
     
-    
+        let day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        todaysDate = year + "-" + month + "-" + day;
+        
+        return todaysDate;
+    }
+
+    getFormattedDate(date);
+
+    todaysDateArr = todaysDate.split('-').map(num => parseInt(num, 10));
+    plantsNextWaterArr = plantsNextWater.split('-').map(num => parseInt(num, 10));
+    difference = plantsNextWaterArr[2] - todaysDateArr[2];
+    console.log('todaysDate', difference);  
+
   
     return (
         <PlantListViewWrapper>
@@ -27,6 +57,7 @@ const PlantsListView = props => {
             </PlantListViewText>
             </ImageAndText>
             {bool && <AwsomeWrapper><FontAwesomeIcon icon="tint" /></AwsomeWrapper>}
+            {!bool && <DifferenceWrapper><p>{difference} days left</p></DifferenceWrapper>}
            
         </PlantListViewWrapper>
     );

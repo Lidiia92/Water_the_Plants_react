@@ -254,3 +254,22 @@ export const AwsomeWrapper = styled.div`
    font-size: 5rem;
 
 `;
+
+export const DifferenceWrapper = styled.div`
+   display: flex;
+   align-self: center;
+   height: 100%;
+   margin-right: 28px;
+   color: #d29596;
+   font-size: 1.5rem;
+   text-transform: uppercase;
+
+`;
+
+export const Reminder = styled.h3`
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #d29596;
+    font-weight: 400;
+    margin-top: 25px;
+`;

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
 import PlantsListView from './PlantListView.js';
-import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv, WaterThePlant, WateringWrapper} from '../styled_components/styled.js';
+import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv, WaterThePlant, WateringWrapper, Reminder} from '../styled_components/styled.js';
 import { Button, Card, Image } from 'semantic-ui-react'
 import '../App.css';
 import ReactAnimatedWeather from 'react-animated-weather';
@@ -88,6 +88,16 @@ class PlantList extends Component {
             needsToWater: false,
           });
         } else if (this.state.watering){
+            const plantsAlreadyWatered = []; 
+            this.state.plants.forEach(plant => {
+                if(plant.needsToWater === 1){
+                    plant.needsToWater = 0;
+                    plantsAlreadyWatered.push(plant);
+                } else {
+                    plantsAlreadyWatered.push(plant);
+                }
+            });  
+
           this.setState({
             ...this.state,
             watering: false,
@@ -171,13 +181,13 @@ class PlantList extends Component {
                    />
                    <br />
                    <WaterThePlant onClick={() => this.waterThePlants()}>Stop Watering</WaterThePlant>
-                   <h3>Please update your watering schedule</h3>
+                   <Reminder>Please update your watering schedule</Reminder>
                </WateringWrapper>
                }
                 {!this.state.watering && this.state.plants.length > 0 &&
                     <div>
                         <PlantListViewDiv>
-                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={plant.needsToWater}/>)}
+                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={plant.needsToWater} nextWater={plant.nextWater}/>)}
                         </PlantListViewDiv>
                         {this.state.needsToWater && 
 
