@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {PlantListViewWrapper, PlantListViewImg, PlantListViewText, ImageAndText, AwsomeWrapper, DifferenceWrapper} from '../styled_components/styled.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 
@@ -52,7 +53,7 @@ const PlantsListView = props => {
             <ImageAndText>
                 <PlantListViewImg src={props.img_url}/>
             <PlantListViewText>
-                <h3>{props.name}</h3>
+                <Link to={`/myplants/${props.id}`} id={props.id}><h3>{props.name}</h3></Link>
                 <p>{props.description}</p>
             </PlantListViewText>
             </ImageAndText>

@@ -187,7 +187,7 @@ class PlantList extends Component {
                 {!this.state.watering && this.state.plants.length > 0 &&
                     <div>
                         <PlantListViewDiv>
-                            {this.state.plants.map(plant => <PlantsListView key={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={plant.needsToWater} nextWater={plant.nextWater}/>)}
+                            {this.state.plants.map(plant => <PlantsListView key={plant.id} id={plant.id} name={plant.name} img_url={plant.img_url} description={plant.description} needsToWater={plant.needsToWater} nextWater={plant.nextWater}/>)}
                         </PlantListViewDiv>
                         {this.state.needsToWater && 
 
