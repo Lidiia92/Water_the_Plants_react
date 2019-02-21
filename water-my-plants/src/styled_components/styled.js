@@ -201,6 +201,7 @@ export const PlantListViewText = styled.div`
         color:  #909183;
         margin-top: 8px;
         font-size: 1.5rem;
+        text-align: left;
    }
 `;
 
@@ -273,3 +274,12 @@ export const Reminder = styled.h3`
     font-weight: 400;
     margin-top: 25px;
 `;
+
+export const SinglePlantWrapper = styled.div`
+   display: flex;
+   justify-content: center;
+   margin-top: 30px;
+
+`;
+
+

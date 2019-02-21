@@ -108,7 +108,7 @@
   text-transform: uppercase;
   font-weight: 700;
   padding-top: 13px;
-  padding-bottom: 2px;
+  padding-bottom: 0;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -116,4 +116,18 @@
 .addplant:hover{
   background: #76a088;
   color: #fff;
+}
+
+.editplant {
+  padding-top: 14px;
+  margin-top: 30px;
+}
+
+
+/* Shadow to Card */
+
+.ui.card:last-child {
+  -webkit-box-shadow: -1px 13px 59px -19px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 13px 59px -19px rgba(0,0,0,0.75);
+  box-shadow: -1px 13px 59px -19px rgba(0,0,0,0.75);
 }
