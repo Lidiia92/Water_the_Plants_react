@@ -42,10 +42,18 @@ const PlantsListView = props => {
 
     getFormattedDate(date);
 
+    function daysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+    }
+
     todaysDateArr = todaysDate.split('-').map(num => parseInt(num, 10));
     plantsNextWaterArr = plantsNextWater.split('-').map(num => parseInt(num, 10));
-    difference = plantsNextWaterArr[2] - todaysDateArr[2];
-    console.log('todaysDate', difference);  
+    if(plantsNextWaterArr[2] > todaysDateArr[2]) {
+        difference = plantsNextWaterArr[2] - todaysDateArr[2];
+    } else if (plantsNextWaterArr[2] < todaysDateArr[2]) {
+        difference = (daysInMonth(todaysDateArr[1], todaysDateArr[0]) - todaysDateArr[2] + plantsNextWaterArr[2]);
+    }
+    console.log('todaysDate', daysInMonth(3, 2019));  
 
   
     return (

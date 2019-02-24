@@ -293,6 +293,7 @@ export const Greeting = styled.h3`
     padding-bottom: 11px;
     border-radius: 3px;
     padding-left: 15px;
+
 `;
 
 
