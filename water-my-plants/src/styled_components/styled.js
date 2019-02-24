@@ -282,4 +282,17 @@ export const SinglePlantWrapper = styled.div`
 
 `;
 
+export const Greeting = styled.h3`
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #d29596;
+    font-weight: 400;
+    padding-top: 12px;
+    text-align: left;
+    border: 1px solid #94c9ab;
+    padding-bottom: 11px;
+    border-radius: 3px;
+    padding-left: 15px;
+`;
+
 

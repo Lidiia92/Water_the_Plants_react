@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
 import PlantsListView from './PlantListView.js';
-import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv, WaterThePlant, WateringWrapper, Reminder} from '../styled_components/styled.js';
+import {WrapperCentered, PlantsHeading, PlantsQuontity, PlantListViewDiv, WaterThePlant, WateringWrapper, Reminder, Greeting} from '../styled_components/styled.js';
 import { Button, Card, Image } from 'semantic-ui-react'
 import '../App.css';
 import ReactAnimatedWeather from 'react-animated-weather';
@@ -163,7 +163,7 @@ class PlantList extends Component {
                     <div className="fields centered-width">
                         <a href="/addplant" className="left floated addplant">Add Plant</a>
                         <div className="eight wide field centered">
-                            <input type="text" placeholder="Start typing plant's name" />
+                            <Greeting>Welcome, to your Planter App</Greeting>
                         </div>
                     </div>
                 </div>

@@ -76,6 +76,7 @@ class SinglePlant extends Component {
                             <span className='date'>{this.state.plant.characteristic}</span>
                         </Card.Meta>
                         <Card.Description>{this.state.plant.description}</Card.Description>
+                        
                         </Card.Content>
                         <Card.Content extra>
                         <a>
