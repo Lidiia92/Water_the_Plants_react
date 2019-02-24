@@ -277,8 +277,11 @@ export const Reminder = styled.h3`
 
 export const SinglePlantWrapper = styled.div`
    display: flex;
-   justify-content: center;
+   max-width: 70%;
+   justify-content: space-around;
    margin-top: 30px;
+   margin-left: auto;
+   margin-right: auto;
 
 `;
 
@@ -295,5 +298,29 @@ export const Greeting = styled.h3`
     padding-left: 15px;
 
 `;
+
+export const WateringHeading = styled.h6`
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: 50px;
+
+    p {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        background-color: #94c9ab;
+        text-align: left;
+        margin-top: 10px;
+        padding: 15px 30px;
+        border-radius: 3px;
+        color: #ffffff;
+    }
+
+    span {
+        display: inline-block;
+        margin-top: 20px;
+        color: #d29596;
+    }
+`;
+
 
 

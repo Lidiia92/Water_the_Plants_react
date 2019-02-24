@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
-import {WrapperCentered, SinglePlantWrapper} from '../styled_components/styled.js';
 import { Card, Icon, Image } from 'semantic-ui-react';
+import {WrapperCentered, SinglePlantWrapper, WateringHeading} from '../styled_components/styled.js';
 import '../App.css';
 
 
@@ -68,6 +68,13 @@ class SinglePlant extends Component {
             <WrapperCentered>
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
                 <SinglePlantWrapper>
+                    <WateringHeading>
+                        <p>I was last watered on:</p> 
+                        <span>{this.state.plant.lastWater}</span>
+
+                        <p>Please water me on:</p> 
+                        <span>{this.state.plant.nextWater}</span>
+                    </WateringHeading>
                     <Card>
                         <Image src={this.state.plant.img_url} />
                         <Card.Content>
