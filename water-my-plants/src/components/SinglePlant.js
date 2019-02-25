@@ -96,7 +96,7 @@ class SinglePlant extends Component {
                             </Card.Content>
                         </Card>
                     </SinglePlantWrapper>
-                    <Link className="addplant editplant" to={{ pathname: `/plant/${this.state.id}/edit`, state: { plant: this.state.plant} }}>My route</Link>
+                    <Link className="addplant editplant" to={{ pathname: `/plant/${this.state.id}/edit`, state: { plant: this.state.plant} }}>Edit plant</Link>
 
                 
             </WrapperCentered>

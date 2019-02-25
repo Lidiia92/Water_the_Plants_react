@@ -12,12 +12,12 @@ class EditPlantForm extends Component {
         super(props);
         this.state = { 
             name: this.props.location.state.plant.name,
-            // characteristic: props.plant.characteristic,
-            // description: props.plant.description,
-            // lastWater: props.plant.lastWater,
-            // nextWater: props.plant.nextWater,
-            // img_url: props.plant.img_url,
-            // id: props.plant.id
+            characteristic: this.props.location.state.plant.characteristic,
+            description: this.props.location.state.plant.description,
+            lastWater: this.props.location.state.plant.lastWater,
+            nextWater: this.props.location.state.plant.nextWater,
+            img_url: this.props.location.state.plant.img_url,
+            id: this.props.location.state.plant.id
 
         }
       }
@@ -29,14 +29,14 @@ class EditPlantForm extends Component {
         try {
             const token = localStorage.getItem('jwtToken');
             const userId = localStorage.getItem('newUserId');
-            const endpoint = `https://wmp2-back-end.herokuapp.com/api/users/${userId}/plants`;
+            const endpoint = `https://wmp2-back-end.herokuapp.com/api/plants/${this.state.id}`;
 
             const options = {
                 headers: {
                   Authorization: token
                 }
               }
-            const res = await axios.post(endpoint, this.state, options);
+            const res = await axios.put(endpoint, this.state, options);
             console.log('test');
             const { data } = await res;
             console.log('test', data);
