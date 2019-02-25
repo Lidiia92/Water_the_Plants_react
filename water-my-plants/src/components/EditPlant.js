@@ -11,16 +11,17 @@ class EditPlantForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            name: props.plant.name,
-            characteristic: props.plant.characteristic,
-            description: props.plant.description,
-            lastWater: props.plant.lastWater,
-            nextWater: props.plant.nextWater,
-            img_url: props.plant.img_url,
-            id: props.plant.id
+            name: this.props.location.state.plant.name,
+            // characteristic: props.plant.characteristic,
+            // description: props.plant.description,
+            // lastWater: props.plant.lastWater,
+            // nextWater: props.plant.nextWater,
+            // img_url: props.plant.img_url,
+            // id: props.plant.id
 
         }
       }
+
    
 
     handleSubmit = async (event) => {
@@ -72,6 +73,7 @@ class EditPlantForm extends Component {
     }
 
     render(){
+        console.log('edit form state', this.props.location.state.plant);
         return (
             <WrapperCentered>
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>

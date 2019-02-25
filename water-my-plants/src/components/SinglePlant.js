@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
 import EditPlantForm from './EditPlant';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import {WrapperCentered, SinglePlantWrapper, WateringHeading} from '../styled_components/styled.js';
 import '../App.css';
@@ -96,11 +96,7 @@ class SinglePlant extends Component {
                             </Card.Content>
                         </Card>
                     </SinglePlantWrapper>
-                    <a className="addplant editplant" href={`/plant/${this.state.id}/edit`}>Edit Plant</a> 
-
-                    <Route 
-                    path="/plant/:id/edit" 
-                    render={props => <EditPlantForm plant={this.state} {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} />    
+                    <Link className="addplant editplant" to={{ pathname: `/plant/${this.state.id}/edit`, state: { plant: this.state.plant} }}>My route</Link>
 
                 
             </WrapperCentered>

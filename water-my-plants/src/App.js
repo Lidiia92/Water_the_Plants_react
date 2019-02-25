@@ -5,6 +5,7 @@ import Register from './components/Register.js';
 import PlantList from './components/PlantsList.js';
 import AddPlantForm from './components/AddPlant.js';
 import SinglePlant from './components/SinglePlant.js';
+import EditPlantForm from './components/EditPlant.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route } from 'react-router-dom';
@@ -74,7 +75,11 @@ class App extends Component {
 
               <Route 
                   path="/myplants/:id" 
-                  render={props => <SinglePlant {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} />    
+                  render={props => <SinglePlant {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
+
+              <Route 
+                  path="/plant/:id/edit" 
+                  render={props => <EditPlantForm {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
               <ToastContainer />
           </div>
 
