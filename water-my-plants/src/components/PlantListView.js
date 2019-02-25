@@ -48,7 +48,7 @@ const PlantsListView = props => {
 
     todaysDateArr = todaysDate.split('-').map(num => parseInt(num, 10));
     plantsNextWaterArr = plantsNextWater.split('-').map(num => parseInt(num, 10));
-    if(plantsNextWaterArr[2] > todaysDateArr[2]) {
+    if(plantsNextWaterArr[2] >= todaysDateArr[2]) {
         difference = plantsNextWaterArr[2] - todaysDateArr[2];
     } else if (plantsNextWaterArr[2] < todaysDateArr[2]) {
         difference = (daysInMonth(todaysDateArr[1], todaysDateArr[0]) - todaysDateArr[2] + plantsNextWaterArr[2]);
