@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
+import EditPlantForm from './EditPlant';
+import { Route } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import {WrapperCentered, SinglePlantWrapper, WateringHeading} from '../styled_components/styled.js';
 import '../App.css';
@@ -67,33 +69,40 @@ class SinglePlant extends Component {
            
             <WrapperCentered>
                 <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
-                <SinglePlantWrapper>
-                    <WateringHeading>
-                        <p>I was last watered on:</p> 
-                        <span>{this.state.plant.lastWater}</span>
+                    
+                    <SinglePlantWrapper>
+                        <WateringHeading>
+                            <p>I was last watered on:</p> 
+                            <span>{this.state.plant.lastWater}</span>
 
-                        <p>Please water me on:</p> 
-                        <span>{this.state.plant.nextWater}</span>
-                    </WateringHeading>
-                    <Card>
-                        <Image src={this.state.plant.img_url} />
-                        <Card.Content>
-                        <Card.Header>{this.state.plant.name}</Card.Header>
-                        <Card.Meta>
-                            <span className='date'>{this.state.plant.characteristic}</span>
-                        </Card.Meta>
-                        <Card.Description>{this.state.plant.description}</Card.Description>
-                        
-                        </Card.Content>
-                        <Card.Content extra>
-                        <a>
-                            <Icon name='arrow alternate circle right outline' />
-                            Delete Plant
-                        </a>
-                        </Card.Content>
-                    </Card>
-                </SinglePlantWrapper>
-                <a className="addplant editplant" href="#">Edit Plant</a>
+                            <p>Please water me on:</p> 
+                            <span>{this.state.plant.nextWater}</span>
+                        </WateringHeading>
+                        <Card>
+                            <Image src={this.state.plant.img_url} />
+                            <Card.Content>
+                            <Card.Header>{this.state.plant.name}</Card.Header>
+                            <Card.Meta>
+                                <span className='date'>{this.state.plant.characteristic}</span>
+                            </Card.Meta>
+                            <Card.Description>{this.state.plant.description}</Card.Description>
+                            
+                            </Card.Content>
+                            <Card.Content extra>
+                            <a>
+                                <Icon name='arrow alternate circle right outline' />
+                                Delete Plant
+                            </a>
+                            </Card.Content>
+                        </Card>
+                    </SinglePlantWrapper>
+                    <a className="addplant editplant" href={`/plant/${this.state.id}/edit`}>Edit Plant</a> 
+
+                    <Route 
+                    path="/plant/:id/edit" 
+                    render={props => <EditPlantForm plant={this.state} {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} />    
+
+                
             </WrapperCentered>
          
         );
