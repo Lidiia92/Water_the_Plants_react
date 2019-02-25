@@ -50,9 +50,30 @@ class SinglePlant extends Component {
         })
       }
       catch (err) {
-        console.error('ERR', err)
+        console.error('ERR', err);
       }
     }
+
+    deletePlant = async (id) => {
+        try {
+            const token = localStorage.getItem('jwtToken');
+    
+            const endpoint = `https://wmp2-back-end.herokuapp.com/api/plants/${this.state.id}`;
+    
+            const options = {
+                headers: {
+                    Authorization: token
+                }
+            }
+            const res = await axios.delete(endpoint, options, id);
+            const { data } = await res;
+            console.log('test 345', res.data);
+            this.visitpage();
+        } catch (err) {
+            console.error('ERR', err);
+        }
+
+    };
 
 
 
@@ -89,7 +110,7 @@ class SinglePlant extends Component {
                             
                             </Card.Content>
                             <Card.Content extra>
-                            <a>
+                            <a onClick={() => this.deletePlant(this.state.id)}>
                                 <Icon name='arrow alternate circle right outline' />
                                 Delete Plant
                             </a>
