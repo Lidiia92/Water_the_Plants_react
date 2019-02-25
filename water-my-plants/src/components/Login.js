@@ -25,9 +25,9 @@ class Login extends Component {
             const res = await axios.post(endpoint, this.state);
             console.log('test');
             const { data } = await res;
-            console.log('test', data);
+            console.log('test in the login', data);
             localStorage.setItem('jwtToken', res.data.token);
-            localStorage.setItem('newUserId', res.data.newUser);
+            localStorage.setItem('newUserId', res.data.userForCheck.id);
             this.props.loggedIn(true);
             this.clearState();
             this.visitpage();
