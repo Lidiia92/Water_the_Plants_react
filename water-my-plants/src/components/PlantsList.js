@@ -157,7 +157,7 @@ class PlantList extends Component {
         return (
            
             <WrapperCentered>
-                <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
+                <NavigationMenu signout={this.props.signout} isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
                 <div className="ui form">
                     
                     <div className="fields centered-width">

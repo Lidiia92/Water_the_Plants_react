@@ -1,20 +1,18 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import NavigationMenu from './NavBar';
-import {WrapperCentered, FormWrapper, Icon, License} from '../styled_components/styled.js';
+import {WrapperCentered, FormWrapper, Icon, License, MrgnTop} from '../styled_components/styled.js';
 import '../App.css';
 
 /* Component */
 
-class Register extends Component {
+class Login extends Component {
 
     constructor(props) {
         super(props);
         this.state = { 
             username: '',
             password: '', 
-            email: '',
-            phone: '',
 
         }
       }
@@ -23,7 +21,7 @@ class Register extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const endpoint = 'https://wmp2-back-end.herokuapp.com/api/register';
+            const endpoint = 'https://wmp2-back-end.herokuapp.com/api/login';
             const res = await axios.post(endpoint, this.state);
             console.log('test');
             const { data } = await res;
@@ -51,8 +49,7 @@ class Register extends Component {
         this.setState({
             username: '',
             password: '', 
-            email: '',
-            phone: ''
+
         })
     }
 
@@ -87,31 +84,16 @@ class Register extends Component {
                             onChange={this.handleChange}
                             placeholder="Password" required/>
                     </div>
-                    <div className="field">
-                        <label>Email *</label>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            value={this.state.email} 
-                            onChange={this.handleChange}
-                            placeholder="Email" required/>
-                    </div>
-                    <div className="field">
-                        <label>Phone</label>
-                        <input 
-                            type="tel" 
-                            name="phone" 
-                            value={this.state.phone} 
-                            onChange={this.handleChange}
-                            placeholder="Phone" />
-                    </div>
+
                     <button className="ui button" type="submit">Submit</button>
                     </form>
                 </FormWrapper>
-                <License href="https://www.freepik.com/free-photos-vectors/flowers">© Flowers vector created by macrovector - www.freepik.com</License>
+                <MrgnTop>
+                    <License href="https://www.freepik.com/free-photos-vectors/flowers" >© Flowers vector created by macrovector - www.freepik.com</License>
+                </MrgnTop>
             </WrapperCentered>
         );
     }
   };
   
-  export default Register;
+  export default Login;

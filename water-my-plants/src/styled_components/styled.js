@@ -322,5 +322,10 @@ export const WateringHeading = styled.h6`
     }
 `;
 
+export const MrgnTop = styled.div`
+    margin-top: 156px;
+
+`;
+
 
 

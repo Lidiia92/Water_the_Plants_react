@@ -31,7 +31,11 @@ const NavigationBar = props => {
                     <Tab href={link()} onClick={(e) => displayPlants(e, props)}>My Plants</Tab>
                 </BrandWrapper>
                 <div>
-                    <LogInBTn href="#">Log In</LogInBTn>
+                    {!props.isLoggedIn && <LogInBTn href="/login">Log In</LogInBTn> }
+                    {props.isLoggedIn && <LogInBTn onClick={() => {
+                           localStorage.removeItem('jwtToken');
+                           localStorage.removeItem('newUserId');
+                    }} href="/" >Log Out</LogInBTn>}
                     <LogInBTn href="/register">Sign Up</LogInBTn>
                 </div>
             </FlexNav>

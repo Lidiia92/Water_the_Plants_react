@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Jumbotron from './components/jumbotronHomePage';
 import Register from './components/Register.js';
+import Login from './components/Login.js';
 import PlantList from './components/PlantsList.js';
 import AddPlantForm from './components/AddPlant.js';
 import SinglePlant from './components/SinglePlant.js';
@@ -48,6 +49,13 @@ class App extends Component {
     })
   }
 
+  signout = () => {
+
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('newUserId');
+    //window.location.reload();
+  }
+
 
   render() {
     return (
@@ -61,25 +69,29 @@ class App extends Component {
               
               <Route 
                   path="/register" 
-                  render={props => <Register {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
+                  render={props => <Register {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
 
 
               <Route 
                   path="/myplants" exact 
-                  render={props => <PlantList {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} watering={this.state.watering} waterThePlants={this.waterThePlants}/>} />       
+                  render={props => <PlantList {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} watering={this.state.watering} waterThePlants={this.waterThePlants}/>} />       
             
 
               <Route 
                   path="/addplant" 
-                  render={props => <AddPlantForm {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} /> 
+                  render={props => <AddPlantForm {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} /> 
 
               <Route 
                   path="/myplants/:id" 
-                  render={props => <SinglePlant {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
+                  render={props => <SinglePlant {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
 
               <Route 
                   path="/plant/:id/edit" 
-                  render={props => <EditPlantForm {...props} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
+                  render={props => <EditPlantForm {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} />
+                  
+                <Route 
+                  path="/login" 
+                  render={props => <Login {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
               <ToastContainer />
           </div>
 

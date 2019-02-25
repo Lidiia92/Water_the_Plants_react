@@ -73,7 +73,7 @@ class AddPlantForm extends Component {
     render(){
         return (
             <WrapperCentered>
-                <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
+                <NavigationMenu signout={this.props.signout} isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
                 <FormWrapper>
                     <form className="ui form" onSubmit={this.handleSubmit}>
                     <div className="field mg-top">

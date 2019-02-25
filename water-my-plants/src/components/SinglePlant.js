@@ -89,7 +89,7 @@ class SinglePlant extends Component {
         return (
            
             <WrapperCentered>
-                <NavigationMenu isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
+                <NavigationMenu signout={this.props.signout} isLoggedIn={this.props.isLoggedIn} notify={this.props.notify} visitPage={this.props.visitPage}/>
                     
                     <SinglePlantWrapper>
                         <WateringHeading>
