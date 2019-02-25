@@ -1,7 +1,6 @@
 {
   "name": "water-my-plants",
   "version": "0.1.0",
-  "homepage": "https://lidiia92.github.io/Water_the_Plants_react/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
@@ -27,8 +26,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
