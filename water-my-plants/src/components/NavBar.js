@@ -25,7 +25,7 @@ const NavigationBar = props => {
 
 
     return (
-            <FlexNav>
+            <FlexNav data-testid="navbar">
                 <BrandWrapper>
                     <Brand href="/">Planter</Brand>
                     <Tab href={link()} onClick={(e) => displayPlants(e, props)}>My Plants</Tab>
