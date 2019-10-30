@@ -25,7 +25,7 @@ const NavigationBar = props => {
 
 
     return (
-            <FlexNav data-testid="navbar">
+            <FlexNav >
                 <BrandWrapper>
                     <Brand href="/">Planter</Brand>
                     <Tab href={link()} onClick={(e) => displayPlants(e, props)}>My Plants</Tab>
@@ -36,7 +36,7 @@ const NavigationBar = props => {
                            localStorage.removeItem('jwtToken');
                            localStorage.removeItem('newUserId');
                     }} href="/" >Log Out</LogInBTn>}
-                    <LogInBTn href="/register">Sign Up</LogInBTn>
+                    <LogInBTn href="/register" data-testid="signup">Sign Up</LogInBTn>
                 </div>
             </FlexNav>
     );

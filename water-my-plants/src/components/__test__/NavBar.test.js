@@ -10,3 +10,7 @@ it('renders without crashing', () => {
       <NavBar></NavBar>, testLink
     );
 });
+
+it('the navbarshould have signup button', () => {
+    rtl.render(<NavBar><a>Sign Up</a></NavBar>);
+})

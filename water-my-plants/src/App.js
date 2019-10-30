@@ -9,7 +9,7 @@ import SinglePlant from './components/SinglePlant.js';
 import EditPlantForm from './components/EditPlant.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTint } from '@fortawesome/free-solid-svg-icons';
  
@@ -59,43 +59,47 @@ class App extends Component {
 
   render() {
     return (
-        <div>
-          <div className="App bg">
-
-              <Route path="/" exact render={props => <Jumbotron 
-                  isLoggedIn={this.state.isLoggedIn} 
-                  notify={this.notify} 
-                  visitPage={this.visitPage}/>} />
-              
-              <Route 
-                  path="/register" 
-                  render={props => <Register {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
+        <Router>
+          <div>
+            <div className="App bg">
 
 
-              <Route 
-                  path="/myplants" exact 
-                  render={props => <PlantList {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} watering={this.state.watering} waterThePlants={this.waterThePlants}/>} />       
-            
 
-              <Route 
-                  path="/addplant" 
-                  render={props => <AddPlantForm {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} /> 
-
-              <Route 
-                  path="/myplants/:id" 
-                  render={props => <SinglePlant {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
-
-              <Route 
-                  path="/plant/:id/edit" 
-                  render={props => <EditPlantForm {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} />
-                  
+                <Route path="/" exact render={props => <Jumbotron 
+                    isLoggedIn={this.state.isLoggedIn} 
+                    notify={this.notify} 
+                    visitPage={this.visitPage}/>} />
+                
                 <Route 
-                  path="/login" 
-                  render={props => <Login {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
-              <ToastContainer />
-          </div>
+                    path="/register" 
+                    render={props => <Register {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
 
-        </div>
+
+                <Route 
+                    path="/myplants" exact 
+                    render={props => <PlantList {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} watering={this.state.watering} waterThePlants={this.waterThePlants}/>} />       
+              
+
+                <Route 
+                    path="/addplant" 
+                    render={props => <AddPlantForm {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} /> 
+
+                <Route 
+                    path="/myplants/:id" 
+                    render={props => <SinglePlant {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} /> 
+
+                <Route 
+                    path="/plant/:id/edit" 
+                    render={props => <EditPlantForm {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify}/>} />
+                    
+                  <Route 
+                    path="/login" 
+                    render={props => <Login {...props} signout={this.signout} isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} notify={this.notify} />} />
+                <ToastContainer />
+            </div>
+
+          </div>
+        </Router>
     );
   }
 }
