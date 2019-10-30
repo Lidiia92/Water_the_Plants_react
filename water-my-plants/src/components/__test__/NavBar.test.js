@@ -22,3 +22,6 @@ it('signup button should have text "signup"', () => {
     expect(queryByText("Sign Up")).toBeTruthy(); 
 
 })
+
+
+

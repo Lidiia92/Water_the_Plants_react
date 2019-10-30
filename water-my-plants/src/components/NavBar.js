@@ -25,10 +25,10 @@ const NavigationBar = props => {
 
 
     return (
-            <FlexNav >
+            <FlexNav>
                 <BrandWrapper>
                     <Brand href="/">Planter</Brand>
-                    <Tab href={link()} onClick={(e) => displayPlants(e, props)}>My Plants</Tab>
+                    <Tab href={link()} onClick={(e) => displayPlants(e, props)} data-testid="my-plants">My Plants</Tab>
                 </BrandWrapper>
                 <div>
                     {!props.isLoggedIn && <LogInBTn href="/login">Log In</LogInBTn> }

@@ -63,8 +63,6 @@ class App extends Component {
           <div>
             <div className="App bg">
 
-
-
                 <Route path="/" exact render={props => <Jumbotron 
                     isLoggedIn={this.state.isLoggedIn} 
                     notify={this.notify} 
